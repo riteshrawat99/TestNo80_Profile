@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/baseline_home_24"
+        />
+    <item
+        android:id="@+id/help"
+        android:title="@string/help"
+        android:icon="@drawable/baseline_help_center_24"
+        />
+    <item
+        android:id="@+id/update"
+        android:title="Update"
+        android:icon="@drawable/baseline_drive_file_rename_outline_24"
+        />
+    <item
+        android:id="@+id/message"
+        android:title="Message">
+
+        <menu>
+            <item
+                android:id="@+id/email"
+                android:title="Mail"
+                android:icon="@drawable/baseline_email_24"
+                />
+            <item
+                android:id="@+id/phone"
+                android:title="Phone"
+                android:icon="@drawable/phone"
+                />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/logout"
+        android:title="Logout"
+        android:icon="@drawable/baseline_logout_24"
+        />
+
+</menu>

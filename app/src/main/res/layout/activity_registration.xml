@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrationActivity">
+
+   <TextView
+       android:id="@+id/header_title"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Registration Page"
+       android:fontFamily="@font/font4"
+       android:textSize="18sp"
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="10dp"
+       android:textColor="#91d2ae"
+       />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:layout_below="@id/header_title"
+        android:layout_margin="10dp"
+        app:hintTextColor="#4294FF"
+        app:boxStrokeColor="#4294FF"
+
+        app:counterEnabled="true"
+        >
+        <EditText
+            android:id="@+id/editName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font3"
+            android:textSize="17sp"
+            android:inputType="text"
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameLayout"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+
+        android:layout_marginBottom="10dp"
+        android:hint="Email"
+        app:boxStrokeColor="#4294FF"
+        app:counterEnabled="true"
+        app:hintTextColor="#4294FF">
+
+        <EditText
+            android:id="@+id/editEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font3"
+            android:inputType="textEmailAddress"
+            android:textSize="17sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/submitBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:textAllCaps="false"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/emailLayout"
+        android:background="@drawable/custome_btn"
+        android:fontFamily="@font/font1"
+        android:textSize="17sp"
+        android:textColor="@color/white"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        />
+</RelativeLayout>

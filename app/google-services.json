@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "274121123978",
+    "project_id": "phoneauth-204bf",
+    "storage_bucket": "phoneauth-204bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:274121123978:android:cbc45a5a3ca214d7046573",
+        "android_client_info": {
+          "package_name": "com.pupup.firebstore2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhR2-VpzVFbWjET-qUyu-Av8mnBJqiinA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:274121123978:android:68fdd4133e31b247046573",
+        "android_client_info": {
+          "package_name": "com.pupup.getdata"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhR2-VpzVFbWjET-qUyu-Av8mnBJqiinA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:274121123978:android:d791db80aefe0184046573",
+        "android_client_info": {
+          "package_name": "com.pupup.testno80_profile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhR2-VpzVFbWjET-qUyu-Av8mnBJqiinA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:padding="10dp"
+        app:cardCornerRadius="10dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            >
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/recy_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_centerHorizontal="true"
+        />
+        <TextView
+            android:id="@+id/recy_pro_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_below="@id/recy_image"
+            android:layout_marginStart="5dp"
+            android:textSize="17sp"
+            android:text="Todo"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/font1"
+            android:textColor="#2196F3"
+            />
+    <TextView
+            android:id="@+id/recy_pro_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+            android:layout_below="@+id/recy_pro_name"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="5dp"
+            android:textSize="13sp"
+            android:text="Todo"
+            android:fontFamily="@font/font4"
+            android:textColor="#000"
+            />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
