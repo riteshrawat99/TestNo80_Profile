@@ -254,17 +254,11 @@ class MainActivity : AppCompatActivity() {
 
             val storage = FirebaseStorage.getInstance()
             val storageRef = storage.reference
-
-//        conver camera image to profileImage
             val imageRef = storageRef.child(UUID.randomUUID().toString())
-
             val baos = ByteArrayOutputStream()
             cPhonto.compress(Bitmap.CompressFormat.JPEG, 100, baos)
             val data = baos.toByteArray()
-
-            // Upload the image to Firebase Storage
             val uploadTask = imageRef.putBytes(data)
-//            take image from camer and then upload it firebae
             uploadTask.addOnSuccessListener {
 
                 imageRef.downloadUrl.addOnSuccessListener { uri ->

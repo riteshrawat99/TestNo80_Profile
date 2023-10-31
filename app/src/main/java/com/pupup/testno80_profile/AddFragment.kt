@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import java.io.ByteArrayOutputStream
 import java.util.UUID
 
 
@@ -32,6 +33,9 @@ class AddFragment : Fragment() {
     lateinit var des : EditText
     lateinit var price : EditText
      var downloadUri: Uri? = null
+    companion object {
+        const val CAMERA_REQUEST = 123
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -68,39 +72,46 @@ class AddFragment : Fragment() {
             intent.type = "image/*"
             intent.action = Intent.ACTION_GET_CONTENT
             startActivityForResult(Intent.createChooser(intent,"Pick your iamge"),22)
+            bottomSheetDialog.dismiss()
         }
+        fabCamear.setOnClickListener{
+            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(intent, MainActivity.CAMERA_REQUEST)
+            bottomSheetDialog.hide()
+        }
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 22 && resultCode ==Activity.RESULT_OK && data!=null && data.data !=null){
+
+        if (requestCode == 22 && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
+            // Handle gallery image selection
             fileUri = data.data
             try {
-                val bitmap : Bitmap = MediaStore.Images.Media.getBitmap(activity?.contentResolver,fileUri)
+                val bitmap: Bitmap = MediaStore.Images.Media.getBitmap(activity?.contentResolver, fileUri)
                 o_image.setImageBitmap(bitmap)
-            }
-            catch (e:Exception){
-
+            } catch (e: Exception) {
+                // Handle any exceptions
             }
         }
+        else if (requestCode == CAMERA_REQUEST){
+            fileUri = getImageUrl(requireContext(),data?.extras?.get("data") as Bitmap)
+            o_image.setImageURI(fileUri)
+        }
     }
-//    fun addOrder(){
-//        val db = FirebaseFirestore.getInstance()
-//        val uid = auth.currentUser?.uid
-//        val addData = OrderModel(
-//            o_title = title.text.toString(),
-//            o_des = des.text.toString(),
-//            o_price= price.text.toString().toLong(),
-//            o_id =UUID.randomUUID().toString(),
-//            s_id = uid.toString()
-//        )
-//        db.collection("orders").add(addData)
-//            .addOnSuccessListener {
-//                Toast.makeText(requireContext(), "Add successfully", Toast.LENGTH_SHORT).show()
-//        }
-//    }
 
-    fun uploadImage() {
+    fun getImageUrl(inContext: android.content.Context, inImageView: Bitmap):Uri{
+        val bytes = ByteArrayOutputStream()
+        inImageView.compress(Bitmap.CompressFormat.JPEG,100,bytes)
+        val path = MediaStore.Images.Media.insertImage(
+            activity?.contentResolver,inImageView,"Image",null
+        )
+        return Uri.parse(path)
+    }
+
+
+    fun uploadImage(){
         if (fileUri != null) {
             val progressDialog = ProgressDialog(requireContext())
             progressDialog.setTitle("Uploading...")
@@ -143,5 +154,7 @@ class AddFragment : Fragment() {
                 }
         }
     }
+
+
 
 }
